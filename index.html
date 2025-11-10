@@ -15,14 +15,27 @@
     </div>
 
     <div class="button-container"> 
-        <button class="bookBtn">Add New Book</button>
+        <button id="addBookBtn">Add New Book</button>
 
     </div>
 
     <dialog>
         <form id="bookForm">
-            <input type="text">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
 
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="pages">Pages:</label>
+            <input type="number" id="pages" name="pages" required>
+
+            <label for="readInput">Read:</label>
+            <input type="checkbox" id="readInput" name="read">
+            <button type="submit" id="submitBtn">Add book</button>
+            <button type="button" id="cancelBtn">Cancel</button>
+
+    
         </form>
     </dialog>
 
