@@ -31,6 +31,8 @@ function loopThroughBooks(arr) {
 
     let bookDisplayContainer = document.querySelector('.bookDisplayContainer');
 
+    bookDisplayContainer.innerHTML="";
+
     for (let i = 0; i < arr.length; i++) {
 
         let card = document.createElement('div'); 
@@ -57,6 +59,8 @@ function loopThroughBooks(arr) {
 
         bookDisplayContainer.append(card);
 
+        card.classList.add('bookCards');
+
 
 
 
@@ -68,3 +72,38 @@ function loopThroughBooks(arr) {
 }
 
 loopThroughBooks(myLibrary);
+
+const addBookBtn = document.getElementById("addBookBtn");
+const bookDialogRef= document.getElementById("bookDialog");
+const cancelBtn = document.getElementById("cancelBtn");
+const bookForm = document.getElementById("bookForm");
+
+addBookBtn.addEventListener('click', () => { 
+
+    bookDialogRef.showModal();
+
+});
+
+cancelBtn.addEventListener('click', () => {
+
+    bookDialogRef.close();
+});
+
+bookForm.addEventListener('submit', (event) => {
+    event.preventDefault(); /* prevent page reload */
+    let authorVal = document.getElementById('author').value;
+    let pagesVal = document.getElementById('pages').value;
+    let titleVal = document.getElementById('title').value;
+    let readVal = document.getElementById('readInput').checked;
+
+    addBookToLibrary(authorVal, titleVal, pagesVal, readVal);
+    bookDialogRef.close();
+
+    loopThroughBooks(myLibrary);
+
+});
+
+
+
+
+
