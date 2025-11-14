@@ -75,6 +75,18 @@ function loopThroughBooks(arr) {
 
         card.append(removeBtn);
 
+        let toggleBtn = document.createElement("button");
+        toggleBtn.textContent = "Toggle Read"
+        card.append(toggleBtn);
+
+        toggleBtn.addEventListener('click', () => {
+            let findBook = myLibrary.find(book => book.id === currentBookId);
+            findBook.readStatus();
+
+            loopThroughBooks(myLibrary);
+
+        });
+
         removeBtn.addEventListener('click', () => {
             /* findIndex returns -1 if no item passes test, otherwise returns `true` */
             let indexRemoval = myLibrary.findIndex(book => book.id === currentBookId);
@@ -87,6 +99,8 @@ function loopThroughBooks(arr) {
 
 
         });
+
+
 
 
 
