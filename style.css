@@ -56,6 +56,7 @@ button:active {
 }
 
 dialog {
+    transition: opacity 0.3s ease, transform 0.3s ease;
     background-color: var(--dialog-gray);
     color: var(--light-gray);
     border: 1px solid var(--border-gray);
@@ -63,6 +64,7 @@ dialog {
     max-width: 500px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5)
 }
+
 
 input[type="text"],
 input[type="number"] {
@@ -83,4 +85,10 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+
 }
