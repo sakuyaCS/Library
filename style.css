@@ -134,3 +134,8 @@ dialog::backdrop{
     text-align: center;
     padding: 30px 0
 }
+
+.empty-message {
+    text-align: center;
+    grid-column: 1 / -1;
+}
