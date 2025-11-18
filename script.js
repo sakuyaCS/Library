@@ -33,68 +33,74 @@ function loopThroughBooks(arr) {
 
     bookDisplayContainer.innerHTML="";
 
-    for (let i = 0; i < arr.length; i++) {
+    if (arr.length > 0) {
+
+    
+
+        for (let i = 0; i < arr.length; i++) {
+
+            
+
+            let card = document.createElement('div'); 
+
+            let titleElement = document.createElement('p');
+            titleElement.textContent = "Title: " + arr[i].title;
+
+            card.append(titleElement)
+
+            let authorElement = document.createElement('p');
+            authorElement.textContent= "Author: " + arr[i].author;
+
+            card.append(authorElement);
+
+            let pagesElement = document.createElement('p');
+            pagesElement.textContent = "Pages: " + arr[i].pages;
+
+            card.append(pagesElement);
+
+            let readElement = document.createElement('p');
+            readElement.textContent = "Read: " + arr[i].read;
+
+            card.append(readElement);
+
+            bookDisplayContainer.append(card);
+
+            card.classList.add('bookCards');
+
+            const currentBookId = arr[i].id;
+
+            let removeBtn = document.createElement("button");
+
+            removeBtn.textContent = "Remove";
+
+            card.append(removeBtn);
+
+            let toggleBtn = document.createElement("button");
+            toggleBtn.textContent = "Toggle Read"
+            card.append(toggleBtn);
+
+            toggleBtn.addEventListener('click', () => {
+                let findBook = myLibrary.find(book => book.id === currentBookId);
+                findBook.readStatus();
+
+                loopThroughBooks(myLibrary);
+
+            });
+
+            removeBtn.addEventListener('click', () => {
+                /* findIndex returns -1 if no item passes test, otherwise returns `true` */
+                let indexRemoval = myLibrary.findIndex(book => book.id === currentBookId);
+                if (indexRemoval > -1) {
+                    myLibrary.splice(indexRemoval, 1);
+                }
+
+                loopThroughBooks(myLibrary);
+            });
+        }
+
+
 
         
-
-        let card = document.createElement('div'); 
-
-        let titleElement = document.createElement('p');
-        titleElement.textContent = "Title: " + arr[i].title;
-
-        card.append(titleElement)
-
-        let authorElement = document.createElement('p');
-        authorElement.textContent= "Author: " + arr[i].author;
-
-        card.append(authorElement);
-
-        let pagesElement = document.createElement('p');
-        pagesElement.textContent = "Pages: " + arr[i].pages;
-
-        card.append(pagesElement);
-
-        let readElement = document.createElement('p');
-        readElement.textContent = "Read: " + arr[i].read;
-
-        card.append(readElement);
-
-        bookDisplayContainer.append(card);
-
-        card.classList.add('bookCards');
-
-        const currentBookId = arr[i].id;
-
-        let removeBtn = document.createElement("button");
-
-        removeBtn.textContent = "Remove";
-
-        card.append(removeBtn);
-
-        let toggleBtn = document.createElement("button");
-        toggleBtn.textContent = "Toggle Read"
-        card.append(toggleBtn);
-
-        toggleBtn.addEventListener('click', () => {
-            let findBook = myLibrary.find(book => book.id === currentBookId);
-            findBook.readStatus();
-
-            loopThroughBooks(myLibrary);
-
-        });
-
-        removeBtn.addEventListener('click', () => {
-            /* findIndex returns -1 if no item passes test, otherwise returns `true` */
-            let indexRemoval = myLibrary.findIndex(book => book.id === currentBookId);
-            if (indexRemoval > -1) {
-                myLibrary.splice(indexRemoval, 1);
-            }
-
-            loopThroughBooks(myLibrary);
-
-
-
-        });
 
 
 
@@ -103,7 +109,12 @@ function loopThroughBooks(arr) {
   
 
     
-    };
+    } else {
+        let emptyBookNotice = document.createElement('p');
+        emptyBookNotice.textContent = 'What have you read lately?';
+        emptyBookNotice.classList.add('empty-message');
+        bookDisplayContainer.append(emptyBookNotice);
+    }
 
 
 
