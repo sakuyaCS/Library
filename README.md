@@ -13,7 +13,7 @@ A browser-based library management application built with vanilla JavaScript, HT
 - **Remove Books**: Delete books from your library
 - **Toggle Read Status**: Mark books as read or unread
 - **Responsive Design**: Adapts to mobile, tablet, and desktop screens
-- **Empty State**: Friendly message when library is empty
+- **Empty State**: Message when library is empty
 - **Modal Dialog**: Clean form interface for adding new books
 - **Persistent UI**: Cards update dynamically without page reload
 
@@ -32,6 +32,8 @@ A browser-based library management application built with vanilla JavaScript, HT
 - Form validation and preventDefault
 - Object-oriented design patterns
 - CSS custom properties (variables)
+- HTML dialog elements and modal functionality
+- Form handling with validation
 
 
 ## Project Structure
