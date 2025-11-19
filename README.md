@@ -1,6 +1,6 @@
 ## Live Preview
 
-https://sakuyacs.github.io/library/
+https://sakuyacs.github.io/Library/
 
 
 # Library Management App
